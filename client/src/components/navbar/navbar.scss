@@ -4,37 +4,75 @@
 .navbar {
   height: 100px;
   color: $highlight-main;
+  font-size: 24px;
+
+  a {
+    text-decoration: none;
+    font-size: 24px;
+
+    &:visited {
+      color: $highlight-main;
+    }
+  }
 
   &__container {
-    @include flex-row();
+    display: grid;
+    align-items: center;
+    justify-items: center;
+    grid-template-columns: 200px 1fr;
+    grid-template-rows: 1fr;
     position: fixed;
     height: inherit;
     width: 100%;
     background-color: $page-bg-color-additional;
   }
-}
 
-.home-link {
-  position: absolute;
-  top: 50%;
-  left: 10px;
-  transform: translateY(-50%);
-  border: 2px solid $border-color-main;
-  padding: 4px;
-  border-radius: 20px;
-  transition: all 0.4s ease-out;
-  
-  h2 {
+  &__link {
+    font-family: $Kanit;
     color: $highlight-main;
-    font-size: 32px;
-    font-weight: 500;
+    border: 2px solid $border-color-main;
+    padding: 6px 10px;
+    border-radius: 10px;
     transition: all 0.4s ease-out;
+    text-align: center;
   }
 
-  &:hover {
+  &__home-link {
+    border: 2px solid $border-color-main;
+    padding: 4px;
+    border-radius: 20px;
+    transition: all 0.4s ease-out;
+    
     h2 {
-      color: beige
+      color: $highlight-main;
+      font-size: 32px;
+      font-weight: 500;
+      transition: all 0.4s ease-out;
     }
-    border-color: $highlight-additional;
+  
+    &:hover {
+      h2 {
+        color: $text-color-additional;
+      }
+      border-color: $highlight-additional;
+    }
+  }
+
+  &__write-btn {
+    background-color: $highlight-additional;
+  }
+
+  &__logout-btn {
+    cursor: pointer;
+  }
+
+  &__greet {
+    font-size: 32px;
   }
 }
+
+.grid-wrap {
+  width: 100%;
+  @include flex-row();
+}
+

@@ -1,20 +1,20 @@
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
-import Home from "./pages/Home";
-import Login from "./pages/Login";
-import Register from "./pages/Register";
-import Single from "./pages/Single";
-import Write from "./pages/Write";
-import Navbar from "./components/navbar/Navbar.jsx";
-import Footer from "./components/footer/Footer.jsx";
+import Home from "./pages/home/Home";
+import Login from "./pages/login/Login";
+import Register from "./pages/register/Register";
+import Single from "./pages/single/Single";
+import Write from "./pages/write/Write";
+import Navbar from "./components/navbar/Navbar";
+import Footer from "./components/footer/Footer";
 import ErrorPage from "./pages/errorPage/ErrorPage";
 
 const Layout = () => {
   return (
-    <>
+    <div className="main-layout">
       <Navbar />
       <Outlet />
       <Footer />
-    </>
+    </div>
   );
 };
 

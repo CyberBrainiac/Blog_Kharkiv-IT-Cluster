@@ -15,28 +15,37 @@ const Navbar = () => {
   return (
     <div className="navbar">
       <div className="navbar__container">
-        <div className="home-link">
+        <div className="navbar__home-link">
           <Link className="link" to="/?cat=art"><h2>Home page</h2></Link>
         </div>
-        {currentUser ? 
-          <div className="greet">
-            <span>Hello </span> 
-            <span>{currentUser.username}</span> {" "}
-            <span>{currentUser.usersurname}</span>
-          </div>
-          : null}
-        {currentUser ? (
-          <span onClick={logoutNavbar}>Logout</span>
-        ) : (
-          <Link className="link" to="/login">
-            Login
-          </Link>
-        )}
-        <span className="write">
-          <Link className="link" to="/write">
-            Write
-          </Link>
-        </span>
+        <div className="grid-wrap">
+          {currentUser ? 
+            <div className="navbar__greet">
+              <span>Hello </span> 
+              <span>{currentUser.username}</span> {" "}
+              <span>{currentUser.usersurname}</span>
+              <span>!</span>
+            </div>
+            : null}
+          {currentUser ? (
+            <>
+              <div className="navbar__link">
+                <div className="navbar__logout-btn" onClick={logoutNavbar}>Logout</div>
+              </div>
+              <div className="navbar__link navbar__write-btn">
+                <Link to="/write">
+                  Write post
+                </Link>
+              </div>
+            </>
+          ) : (
+            <div className="navbar__link">
+              <Link className="navbar__login-btn" to="/login">
+                Login
+              </Link>
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );

@@ -1,10 +1,11 @@
 import React, { useContext, useEffect, useState } from "react";
-import EditImage from "../assets/images/edit.png";
-import DeleteImage from "../assets/images/delete.png";
-import { Link, useLocation, useNavigate } from "react-router-dom";
 import axios from "axios";
+import DeleteImage from "../../assets/images/delete.png";
+import { AuthContext } from "../../context/authContext";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import moment from "moment";
-import { AuthContext } from "../context/authContext";
+import EditImage from "../../assets/images/edit.png";
+import './single.scss';
 
 const Single = () => {
   const [post, setPost] = useState({});
@@ -36,15 +37,15 @@ const Single = () => {
 
   return (
     <div className="single">
-      <div className="content">
+      <div className="single__container">
         <div className="user">
-          <div className="info">
+          <div className="user__info">
             <span>{post.username}</span> {" "}
             <span>{post.usersurname}</span>
-            <p>Posted {moment(post.date).fromNow()}</p>
+            <p className="user__date">Posted {moment(post.date).fromNow()}</p>
           </div>
           {currentUser.username === post.username && (
-            <div className="edit">
+            <div className="user__control">
               <Link to={`/write?edit=2`} state={post}>
                 <img src={EditImage} alt="edit" />
               </Link>
@@ -52,8 +53,8 @@ const Single = () => {
             </div>
           )}
         </div>
-        <h1>{post.title}</h1>
-        <i>"{post.desc}"</i>
+        <h3 className="single__title">{post.title}</h3>
+        <p className="single__description">{post.desc}</p>
       </div>
     </div>
   );

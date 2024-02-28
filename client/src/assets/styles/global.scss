@@ -11,3 +11,40 @@ h2 {
 h3 {
   @include headings(40px);
 }
+
+input {
+  font-family: $Open-Sans;
+  padding: 4px 10px;
+  font-size: 24px;
+  background-color: $text-color-additional;
+  border-radius: 10px;
+}
+
+button {
+  padding: 10px;
+  border-width: 3px;
+  font-size: 24px;
+  color: rgb(20, 20, 117);
+  border-top-color: rgb(20, 20, 117);
+  border-left-color: rgb(20, 20, 117);
+  border-right-color: rgb(156, 156, 179);
+  border-bottom-color: rgb(156, 156, 179);
+
+  &:active {
+    border-bottom-color: rgb(20, 20, 117);
+    border-right-color: rgb(20, 20, 117);
+    border-top-color: rgb(156, 156, 179);
+    border-left-color: rgb(156, 156, 179);
+  }
+}
+
+a {
+  @include common-link();
+}
+
+.main-layout {
+  width: 100%;
+  min-height: 100vh;
+  display: grid;
+  grid-template-rows: 100px 1fr;
+}

@@ -25,3 +25,13 @@
   justify-content: center;
   align-items: center;
 }
+
+@mixin common-link() {
+  color: #0000ff;
+  font-size: 20px;
+  text-decoration: underline;
+
+  &:visited {
+    color: $highlight-additional;
+  }
+}

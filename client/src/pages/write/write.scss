@@ -1,0 +1,39 @@
+@import '../../assets/styles/variables';
+@import '../../assets/styles/mixins';
+
+.write {
+  &__container {
+    padding: 20px 60px;
+  }
+}
+
+.content {
+
+  &__elem {
+    font-size: 24px;
+    margin-top: 20px;
+
+    p {
+      margin-bottom: 6px;
+      color: $highlight-additional;
+    }
+  }
+
+  &__title {
+    width: 50vw;
+    border-radius: 0;
+    border-style: solid;
+    border-color: $border-color-main;
+    background-color: transparent;
+  }
+
+  &__description {
+    max-width: 50vw;
+    height: 20vh;
+    font-size: 20px;
+  }
+}
+
+.menu {
+  margin-top: 20px;
+}

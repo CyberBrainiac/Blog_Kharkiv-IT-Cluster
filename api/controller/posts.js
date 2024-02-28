@@ -2,7 +2,8 @@ import db from "../db.js";
 import jwt from "jsonwebtoken";
 
 export const getPosts = (req, res) => {
-  const q = "SELECT * FROM posts";
+  const q = `SELECT posts.id, username, usersurname, title, posts.desc, posts.date FROM posts 
+  join users ON users.id = posts.uid`;
 
   db.query(q, (err, data) => {
     if (err) return res.status(500).send(err);

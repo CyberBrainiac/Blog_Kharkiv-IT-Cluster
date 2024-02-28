@@ -1,0 +1,18 @@
+@import '../../assets/styles/variables';
+@import '../../assets/styles/mixins';
+
+.footer {
+  align-items: end;
+
+  a {
+    color: $highlight-main;
+  }
+
+  &__container {
+    text-align: center;
+    background-color: rgb(49, 56, 139);
+    font-size: 24px;
+    color: $text-color-additional;
+    padding: 20px;
+  }
+}

@@ -1,0 +1,43 @@
+@import '../../assets/styles/variables';
+@import '../../assets/styles/mixins';
+
+.home {
+  &__container {
+    padding: 0 60px;
+  }
+
+  &__posts-wrap:last-child {
+    margin-bottom: 20px;
+  }
+}
+
+.post {
+  border: 3px solid $border-color-main;
+  border-radius: 20px;
+  padding: 10px;
+  margin-top: 20px;
+  font-size: 24px;
+
+  &__title {
+    color: $text-color-main;
+  }
+
+  &__date {
+    color: rgb(113, 113, 113);
+    margin-bottom: 20px;
+
+    span {
+      color: $highlight-additional;
+      font-size: 28px;
+    }
+
+    & > span:last-of-type {
+      margin-right: 30px;
+    }
+  }
+
+  &__btn {
+    margin-top: 10px;
+    text-align: end;
+  }
+}

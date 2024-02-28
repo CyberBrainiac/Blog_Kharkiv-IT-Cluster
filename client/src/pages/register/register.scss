@@ -1,0 +1,48 @@
+@import '../../assets/styles/variables';
+@import '../../assets/styles/mixins';
+
+.auth {
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(251, 241, 227);
+  
+  &__container {
+    transform: translateY(-30%);
+
+    h1 {
+      margin-bottom: 40px;
+      text-align: center;
+    }
+
+    form {
+      @include flex-column();
+      gap: 20px;
+    }
+
+    input {
+      width: 360px;
+    }
+  }
+
+  &__button {
+    background-color: #dacdde;
+    font-weight: 600;
+    letter-spacing: 1px;
+    margin: 15px 0 10px 0;
+  }
+
+  &__redirect {
+    font-size: 22px;
+
+    a {
+      font-size: 22px;
+    }
+  }
+
+  &__error {
+    color: #ff0000;
+    font-size: 18px;
+  }
+}
