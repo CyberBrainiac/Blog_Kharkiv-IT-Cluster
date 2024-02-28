@@ -1,0 +1,13 @@
+@import './mixins';
+
+h1 {
+  @include headings(70px);
+}
+
+h2 {
+  @include headings(50px);
+}
+
+h3 {
+  @include headings(40px);
+}

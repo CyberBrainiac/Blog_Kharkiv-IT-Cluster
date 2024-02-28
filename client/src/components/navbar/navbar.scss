@@ -1,0 +1,40 @@
+@import '../../assets/styles/variables';
+@import '../../assets/styles/mixins';
+
+.navbar {
+  height: 100px;
+  color: $highlight-main;
+
+  &__container {
+    @include flex-row();
+    position: fixed;
+    height: inherit;
+    width: 100%;
+    background-color: $page-bg-color-additional;
+  }
+}
+
+.home-link {
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  transform: translateY(-50%);
+  border: 2px solid $border-color-main;
+  padding: 4px;
+  border-radius: 20px;
+  transition: all 0.4s ease-out;
+  
+  h2 {
+    color: $highlight-main;
+    font-size: 32px;
+    font-weight: 500;
+    transition: all 0.4s ease-out;
+  }
+
+  &:hover {
+    h2 {
+      color: beige
+    }
+    border-color: $highlight-additional;
+  }
+}

@@ -5,7 +5,7 @@ import { AuthContext } from "../context/authContext";
 const Login = () => {
   const { login } = useContext(AuthContext);
   const [inputs, setInputs] = useState({
-    username: "",
+    email: "",
     password: "",
   });
 
@@ -33,9 +33,9 @@ const Login = () => {
       <h1>Login</h1>
       <form>
         <input
-          type="text"
-          placeholder="username"
-          name="username"
+          type="email"
+          placeholder="email"
+          name="email"
           onChange={handleChange}
         />
         <input

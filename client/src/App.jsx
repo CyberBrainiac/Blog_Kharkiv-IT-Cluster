@@ -4,10 +4,9 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Single from "./pages/Single";
 import Write from "./pages/Write";
-import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
+import Navbar from "./components/navbar/Navbar.jsx";
+import Footer from "./components/footer/Footer.jsx";
 import ErrorPage from "./pages/errorPage/ErrorPage";
-import "./assets/styles/style.scss";
 
 const Layout = () => {
   return (

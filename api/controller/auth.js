@@ -3,9 +3,10 @@ import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 
 export const register = (req, res) => {
-  const query = "SELECT * FROM users WHERE email = ? OR username = ?";
+  const query = "SELECT * FROM users WHERE email = ?";
   // Run query with the user's email and username as parameters
-  db.query(query, [req.body.email, req.body.username], (err, data) => {
+  console.log("START REGISTER");
+  db.query(query, [req.body.email], (err, data) => {
 
     if (err) return res.json(err);
     // If the query returns data, it means the user already exists, return a 409 conflict status code
@@ -17,8 +18,8 @@ export const register = (req, res) => {
     // Generate a hash value using the password and the salt value
     const hash = bcrypt.hashSync(req.body.password, salt);
 
-    const query = "INSERT INTO users(`username`,`email`,`password`) VALUES (?)";
-    const values = [req.body.username, req.body.email, hash];
+    const query = "INSERT INTO users(`username`,`usersurname`,`email`,`password`) VALUES (?)";
+    const values = [req.body.username, req.body.usersurname, req.body.email, hash];
 
     db.query(query, [values], (err, data) => {
       if (err) return res.json(err);
@@ -28,9 +29,9 @@ export const register = (req, res) => {
 };
 
 export const login = (req, res) => {
-  const query = "SELECT * FROM users WHERE username = ?";
+  const query = "SELECT * FROM users WHERE email = ?";
 
-  db.query(query, [req.body.username], (err, data) => {
+  db.query(query, [req.body.email], (err, data) => {
     if (err) return res.json(err);
     if (data.length === 0) return res.status(404).json("User not found!");
 

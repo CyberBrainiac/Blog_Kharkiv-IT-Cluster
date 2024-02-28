@@ -1,0 +1,27 @@
+@import './variables';
+
+/*Headings and Text*/
+@mixin headings($font-size) {
+  color: $highlight-additional;
+  font-size: $font-size;
+  font-style: normal;
+  font-weight: 700;
+  font-family: $Kanit;
+  letter-spacing: 0.5px;
+  line-height: 1.2;
+}
+
+/*Flex box*/
+@mixin flex-row() {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+@mixin flex-column() {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
