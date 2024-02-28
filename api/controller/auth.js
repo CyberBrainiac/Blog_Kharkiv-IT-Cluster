@@ -44,14 +44,9 @@ export const login = (req, res) => {
     }
 
     //create a JSON web token
-
     const token = jwt.sign({ id: data[0].id }, "jwtkey");
-    const userData = Object.entries(data[0]).reduce((res, [key, value]) => {
-      if (key === "password") return res;
-      console.log('RES', res);
-      return {...res, [key]: value}
-    }, {});
-    console.log(userData);
+    // Remove the password from the user data
+    const { password, ...userData } = data[0];
 
     // Set the token as a http-only cookie and send user data as response
     res.cookie("jwt_token", token, {
