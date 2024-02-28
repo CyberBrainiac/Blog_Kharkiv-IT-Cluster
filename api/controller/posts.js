@@ -8,7 +8,6 @@ export const getPosts = (req, res) => {
 
   db.query(q, [req.query.cat], (err, data) => {
     if (err) return res.status(500).send(err);
-    console.log('POSTS', data);
     return res.status(200).json(data);
   });
 };
@@ -37,7 +36,7 @@ export const addPost = (req, res) => {
     const values = [
       req.body.title,
       req.body.desc,
-      req.body.img,
+      req.body.img || " ",
       req.body.cat,
       req.body.date,
       userInfo.id,
@@ -51,7 +50,7 @@ export const addPost = (req, res) => {
 };
 
 export const deletePost = (req, res) => {
-  const token = req.cookies.access_token;
+  const token = req.cookies.jwt_token;
   if (!token) return res.status(401).json("Not authenticated");
 
   jwt.verify(token, "jwtkey", (err, userInfo) => {
@@ -68,7 +67,7 @@ export const deletePost = (req, res) => {
 };
 
 export const updatePost = (req, res) => {
-  const token = req.cookies.access_token;
+  const token = req.cookies.jwt_token;
   if (!token) return res.status(401).json("Not authenticated!");
 
   jwt.verify(token, "jwtkey", (err, userInfo) => {
@@ -77,7 +76,7 @@ export const updatePost = (req, res) => {
     const postId = req.params.id;
     const q =
       "UPDATE posts SET `title`=?,`desc`=?,`img`=?,`cat`=? WHERE `id` = ? AND `uid` = ?";
-    const values = [req.body.title, req.body.desc, req.body.img, req.body.cat];
+    const values = [req.body.title, req.body.desc, req.body.img || " ", req.body.cat];
 
     db.query(q, [...values, postId, userInfo.id], (err, data) => {
       if (err) return res.status(500).json(err);
