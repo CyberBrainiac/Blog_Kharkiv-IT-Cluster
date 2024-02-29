@@ -5,6 +5,9 @@
   height: 100px;
   color: $highlight-main;
   font-size: 24px;
+  background-color: $page-bg-color-additional;
+  display: flex;
+  justify-content: center;
 
   a {
     text-decoration: none;
@@ -24,7 +27,7 @@
     position: fixed;
     height: inherit;
     width: 100%;
-    background-color: $page-bg-color-additional;
+    max-width: 1028px;
   }
 
   &__link {

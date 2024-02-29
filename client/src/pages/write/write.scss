@@ -4,6 +4,8 @@
 .write {
   &__container {
     padding: 20px 60px;
+    max-width: 1028px;
+    margin: 0 auto;
   }
 }
 
@@ -20,7 +22,7 @@
   }
 
   &__title {
-    width: 50vw;
+    width: 30vw;
     border-radius: 0;
     border-style: solid;
     border-color: $border-color-main;
@@ -28,8 +30,8 @@
   }
 
   &__description {
-    max-width: 50vw;
     height: 20vh;
+    width: 30vw;
     font-size: 20px;
   }
 }

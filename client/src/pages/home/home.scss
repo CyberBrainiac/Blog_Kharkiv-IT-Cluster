@@ -4,6 +4,8 @@
 .home {
   &__container {
     padding: 0 60px;
+    max-width: 1028px;
+    margin: 0 auto;
   }
 
   &__posts-wrap:last-child {
